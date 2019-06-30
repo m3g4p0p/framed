@@ -1,0 +1,43 @@
+{
+  "name": "next-frame",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "m3g4p0p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m3g4p0p/framed.git"
+  },
+  "scripts": {
+    "check": "tsc -p tsconfig.verify.json",
+    "lint": "tslint -p tsconfig.verify.json",
+    "build": "npm run lint && npm run test && npm run build:js && npm run build:types",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --delete-dir-on-start",
+    "build:types": "tsc -p tsconfig.emit.json",
+    "build:watch": "npm run build:js -- --watch",
+    "prepublish": "npm run build",
+    "test:watch": "npm run test -- --watchAll",
+    "test": "jest"
+  },
+  "pre-commit": [
+    "lint",
+    "check",
+    "test"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.5.2"
+  }
+}

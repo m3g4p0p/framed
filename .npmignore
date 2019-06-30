@@ -1,0 +1,6 @@
+src/
+test/
+.babelrc
+tsconfig.declaration.json
+tsconfig.typecheck.json
+tslint.json
