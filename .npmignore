@@ -1,6 +1,6 @@
 src/
 test/
 .babelrc
-tsconfig.declaration.json
-tsconfig.typecheck.json
+tsconfig.*
 tslint.json
+yarn.*

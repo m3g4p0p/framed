@@ -1,6 +1,6 @@
-import { framed } from '../src/index'
+import { framus } from '../src'
 
-describe('framed', () => {
+describe('framus', () => {
   const handleError = jest.fn()
 
   afterEach(() => {
@@ -10,7 +10,7 @@ describe('framed', () => {
   it('should request an animation frame', done => {
     const fn = jest.fn()
 
-    framed().then(fn).catch(handleError)
+    framus().then(fn).catch(handleError)
 
     window.requestAnimationFrame((now) => window.setTimeout(() => {
       const [[ arg ]] = fn.mock.calls
