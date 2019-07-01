@@ -9,7 +9,7 @@ export function framus <T> (callback: FramusRequestCallback<T>, options?: Framus
 /**
  * Resolves with the high res time stamp of the next animation frame
  */
-export function framus <T = unknown> (
+export function framus<T> (
   callbackOrOptions: FramusRequestCallback<T> | FramusOptions = {},
   { signal }: FramusOptions = typeof callbackOrOptions === 'function' ? {} : callbackOrOptions
 ): Promise<T | DOMHighResTimeStamp> {
