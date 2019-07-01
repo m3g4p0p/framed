@@ -3,12 +3,22 @@ export interface FramusOptions {
 }
 
 export type FramusRequestCallback<T> = (now: DOMHighResTimeStamp) => T
-export function framus (options?: FramusOptions): Promise<DOMHighResTimeStamp>
-export function framus <T> (callback: FramusRequestCallback<T>, options?: FramusOptions): Promise<T>
 
 /**
- * Resolves with the high res time stamp of the next animation frame
+ * Resolves with the time stamp of the next animation frame.
+ *
+ * Accepts an optional options object which allows passing an abort signal.
  */
+export function framus (options?: FramusOptions): Promise<DOMHighResTimeStamp>
+
+/**
+ * Calls the callback with the high res time stamp of the next animation
+ * frame and resolves with that callback's return value.
+ *
+ * Accepts an optional options object which allows passing an abort signal.
+ */
+export function framus<T> (callback: FramusRequestCallback<T>, options?: FramusOptions): Promise<T>
+
 export function framus<T> (
   callbackOrOptions: FramusRequestCallback<T> | FramusOptions = {},
   { signal }: FramusOptions = typeof callbackOrOptions === 'function' ? {} : callbackOrOptions
