@@ -1,6 +1,6 @@
 # framus
 
-Resolves with the high res time stamp of the next animation frame
+Promise wrapper for requesting an animation frame.
 
 ## Installation
 
@@ -32,7 +32,7 @@ framus(now => {
 })()
 ```
 
-### With abort signal
+### With abort signal option
 
 ```javascript
 const controller = new AbortController()
@@ -40,7 +40,6 @@ const controller = new AbortController()
 framus({ signal: controller.signal }).catch(console.error)
 controller.abort()
 ```
-
 
 ## License
 
